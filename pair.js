@@ -1223,15 +1223,7 @@ case 'jid': {
             participant: `0@s.whatsapp.net`,
             remoteJid: "status@broadcast"
         },
-        message: {
-            contactMessage: {
-                displayName: "KAVIDU INDUWARA ✅",
-                vcard: "BEGIN:VCARD\nVERSION:3.0\nFN: KAVIDU MD VERIFIED ✅\nORG:CASEYRHODES-TECH BOT;\nTEL;type=CELL;type=VOICE;waid=94767054052:+94767054052\nEND:VCARD"
-            }
-        }
-    };
-
-    
+		
     const contextInfo = {
         mentionedJid: [m.sender],
         forwardingScore: 999,
