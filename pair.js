@@ -1185,134 +1185,91 @@ case 'jid': {
 				   break;
 				}
 
-    
-	case 'system': {
-    // Calculate bot uptime
+case 'system': {
     const startTime = socketCreationTime.get(number) || Date.now();
     const uptime = Math.floor((Date.now() - startTime) / 1000);
     const hours = Math.floor(uptime / 3600);
     const minutes = Math.floor((uptime % 3600) / 60);
     const seconds = Math.floor(uptime % 60);
 
-    // Menu caption
-    const menuCaption = `
-> 𝙒𝙀𝙇𝙇𝘾𝙊𝙈𝙀 𝙆𝘼𝙑𝙄𝘿𝙐 𝙈𝘿 𝙫1 ☚
+    const captionText = `
+*𝘽𝙇𝙊𝙊𝘿 𝙓𝙈𝘿 𝙈𝙄𝙉𝙄 𝘽𝙊𝙏 𝘼𝙇𝙄𝙑𝙀 𝙉𝙊𝙒 😚💗*
 
 *╭────◅●◆●▻────➣*
-*│┌──────➣*
-*││ 𝕓𝕠𝕥 𝕦𝕡 𝕥𝕚𝕞𝕖 ➟ ${hours}h ${minutes}m ${seconds}s*
-*││ 𝕓𝕠𝕥𝕒𝕔𝕥𝕚𝕧𝕖 𝕔𝕠𝕦𝕟𝕥𝕖 ➟ ${activeSockets.size}*
-*││ 𝕞𝕚𝕟𝕚 𝕧𝕖𝕣𝕤𝕚𝕠𝕟 ➟ 1.0.0 ᴠ*
-*││ 𝕕𝕖𝕡𝕝𝕠𝕪 𝕡𝕝𝕒𝕥𝕗𝕣𝕠𝕞 ➟ Heroku ❲ ꜰʀᴇᴇ ❳*
-*││ 𝕞𝕚𝕟𝕚 𝕓𝕠𝕥 𝕠𝕨𝕟𝕖𝕣 ➟ 94767054052*
-*│└──────➣*
+*│┌─────────➣*
+*││ʙᴏᴛ ᴜᴘ ᴛɪᴍᴇ ➟ ${hours}h ${minutes}m ${seconds}s* 
+*││ʙᴏᴛᴀᴄᴛɪᴠᴇ ᴄᴏᴜɴᴛ ➟ ${activeSockets.size}* 
+*││ᴍɪɴɪ ᴠᴇʀꜱɪᴏɴ ➟ 1.0.0 ᴠ* 
+*││ᴅᴇᴘʟᴏʏ ᴘʟᴀᴛꜰʀᴏᴍ ➟ [ VPS ]* 
+*││ᴍɪɴɪ ʙᴏᴛ ᴏᴡɴᴇʀ ➟ 94778619890*
+*│└─────────➣*
 *╰────◅●◆●▻────➢*
 
-🔰 𝙆𝘼𝙑𝙄𝘿𝙐 𝗠𝗗 – 𝗔 𝗡𝗲𝘄 𝗘𝗿𝗮 𝗼𝗳 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 𝗕𝗼𝘁 🔰
 
-> 𝙊𝙬𝙣𝙚𝙧 𝙗𝙮 𝙠𝙖𝙫𝙞𝙙𝙪 𝙞𝙣𝙙𝙪𝙬𝙖𝙧𝙖
+➟ This is the result of our team's hard work.
+Therefore, please respect the source and avoid unauthorized edits ◅
 
-➤ 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄 𝐂𝐎𝐌𝐌𝐀𝐍𝐃
+◅ Ｈａｖｅ Ａ Ｎｉｃｅ Ｄａｙ.. 👨‍🔧❤️▻
 
-> © 𝙆𝘼𝙑𝙄𝘿𝙐 𝙈𝘿 𝙈𝙄𝙉𝙄 𝘽𝙊𝙏 𝙑1`;
+> 𝘉𝘓𝘖𝘖𝘋-𝘟-𝘔𝘋-𝘔𝘐𝘕𝘐-𝘉𝘖𝘛- ❤️🔥
+`;
 
-    
-    const verifiedContact = {
-        key: {
-            fromMe: false,
-            participant: `0@s.whatsapp.net`,
-            remoteJid: "status@broadcast"
-        },
-		
-    const contextInfo = {
-        mentionedJid: [m.sender],
-        forwardingScore: 999,
-        isForwarded: true,
-        forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363400387858467@newsletter',
-            newsletterName: 'KAVIDU-MD MINI V1 🔰',
-            serverMessageId: 143
-        }
-    };
-
-    // Template buttons
     const templateButtons = [
         {
-            buttonId: `${config.PREFIX}alive`,
-            buttonText: { displayText: '❲ ALIVE ☠️ ❳ ' },
+            buttonId: `${config.PREFIX}menu`,
+            buttonText: { displayText: '❲ 𝘔𝘌𝘕𝘜  📄 ❳' },
             type: 1,
         },
         {
             buttonId: `${config.PREFIX}owner`,
-            buttonText: { displayText: '❲ OWNER 👑❳' },
+            buttonText: { displayText: ' ❲ 𝘖𝘞𝘕𝘌𝘙  👑 ❳' },
             type: 1,
         },
         {
-            buttonId: `${config.PREFIX}mainmenu`,
-            buttonText: { displayText: '❲ MAIN MENU 📜 ❳' },
-            type: 1,
+            buttonId: 'action',
+            buttonText: {
+                displayText: ' ◅ ❤️👨‍🔧ᴍᴇɴᴜ ᴏᴘᴄᴛɪᴏɴꜱ ▻'
+            },
+            type: 4,
+            nativeFlowInfo: {
+                name: 'single_select',
+                paramsJson: JSON.stringify({
+                    title: 'TAB-AND-SELECTION ❕',
+                    sections: [
+                        {
+                            title: `ʙʟᴏᴏᴅ x ᴍᴅ ᴍɪɴɪ ʙᴏᴛ 👨‍🔧⚡`,
+                            highlight_label: '',
+                            rows: [
+                                {
+                                    title: '❲ 𝘔𝘌𝘕𝘜  📄 ❳',
+                                    description: '',
+                                    id: `${config.PREFIX}menu`,
+                                },
+                                {
+                                    title: '❲ 𝘖𝘞𝘕𝘌𝘙 👑 ❳',
+                                    description: 'ʙʟᴏᴏᴅ x ᴍᴅ ᴍɪɴɪ ʙᴏᴛ 👨‍🔧⚡',
+                                    id: `${config.PREFIX}owner`,
+                                },
+                            ],
+                        },
+                    ],
+                }),
+            },
         }
     ];
 
-    // Send menu image + caption + buttons
-    const sentMsg = await conn.sendMessage(
-        from, 
-        { 
-            image: { url: "https://files.catbox.moe/0mwzza.jpg" }, 
-            caption: menuCaption,
-            buttons: templateButtons,
-            headerType: 1,
-            contextInfo: contextInfo
-        }, 
-        { quoted: verifiedContact }
-    );
+    await socket.sendMessage(m.chat, {
+        buttons: templateButtons,
+        headerType: 1,
+        viewOnce: true,
+        image: { url: "https://files.catbox.moe/kc86ar.jpg" },
+        caption: ` Ⴆʅσσԃ χ мιηι ¢σт νєяѕιση 1 👨‍🔧❤️\n\n${captionText}`,
+    }, { quoted: msg });
 
-    break;
-		}	   
+    
 
-  
-			
-case 'owner': {
-    const ownerNumber = '+94767054052';
-    const ownerName = '𝒦𝒜𝒱𝐼𝒟𝒰 𝐼𝒩𝒟𝒰𝒲𝒜𝑅𝒜';
-    const organization = '*𝙆𝘼𝙑𝙄𝘿𝙐 𝙈𝘿 𝘽𝙊𝙏 & 𝙊𝙒𝙉𝙀𝙍  👨‍🔧🔥*';
-
-    const vcard = 'BEGIN:VCARD\n' +
-                  'VERSION:3.0\n' +
-                  `FN:${ownerName}\n` +
-                  `ORG:${organization};\n` +
-                  `TEL;type=CELL;type=VOICE;waid=${ownerNumber.replace('+', '')}:${ownerNumber}\n` +
-                  'END:VCARD';
-
-    try {
-        // Send vCard contact
-        const sent = await socket.sendMessage(from, {
-            contacts: {
-                displayName: ownerName,
-                contacts: [{ vcard }]
-            }
-        });
-
-        // Then send message with reference
-        await socket.sendMessage(from, {
-            text: `*KAVIDU MD MINI BOT OWNER 👑*\n\n👨‍🔧 Name: ${ownerName}\n💭 ηυмвєя ➥ ${ownerNumber}\n\n> 𝘒𝘈𝘝𝘐𝘋𝘜-𝘔𝘋-𝘔𝘐𝘕𝘐-𝘉𝘖𝘛- 🔥`,
-            contextInfo: {
-                mentionedJid: [`${ownerNumber.replace('+', '')}@s.whatsapp.net`],
-                quotedMessageId: sent.key.id
-            }
-        }, { quoted: msg });
-
-    } catch (err) {
-        console.error('❌ Owner command error:', err.message);
-        await socket.sendMessage(from, {
-            text: '❌ Error sending owner contact.'
-        }, { quoted: msg });
-    }
-				
-          
-        
   break;
-}
+			}     
 			    
   // *** Main spotify command ***
 
